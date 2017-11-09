@@ -1,15 +1,15 @@
 package com.itraters.beatbox;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 
-public class BeatBoxActivity extends AppCompatActivity
+public class BeatBoxActivity extends SingleFragmentActivity
 {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    protected Fragment createFragment()
     {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_beat_box);
+        return BeatBoxFragment.newInstance();
     }
 }
