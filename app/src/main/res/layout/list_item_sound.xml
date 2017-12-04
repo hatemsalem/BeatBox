@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="viewModel"
             type="com.itraters.beatbox.SoundViewModel"/>
     </data>
-    <Button
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:text="@{viewModel.title}">
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@{viewModel.title}"
+            android:onClick="@{()->viewModel.onButtonClicked()}"
+            android:layout_gravity="center"
+            tools:text="Sound Name">
 
-    </Button>
+        </Button>
+    </FrameLayout>
 </layout>

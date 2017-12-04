@@ -32,4 +32,8 @@ public class SoundViewModel extends BaseObservable
     {
         return sound.getName();
     }
+    public void onButtonClicked()
+    {
+        beatbox.play(sound);
+    }
 }

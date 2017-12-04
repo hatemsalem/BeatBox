@@ -6,6 +6,7 @@ package com.itraters.beatbox;
 
 public class Sound
 {
+    private Integer soundId;
     private String asseetPath;
     private String name;
 
@@ -25,5 +26,15 @@ public class Sound
     public String getName()
     {
         return name;
+    }
+
+    public Integer getSoundId()
+    {
+        return soundId;
+    }
+
+    public void setSoundId(Integer id)
+    {
+        this.soundId = id;
     }
 }

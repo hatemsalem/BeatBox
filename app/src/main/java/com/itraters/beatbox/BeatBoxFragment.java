@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SeekBar;
 
 import com.itraters.beatbox.databinding.FragmentBeatBoxBinding;
 import com.itraters.beatbox.databinding.ListItemSoundBinding;
@@ -27,6 +28,13 @@ public class BeatBoxFragment extends Fragment
         return new BeatBoxFragment();
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true );
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState)
@@ -35,6 +43,26 @@ public class BeatBoxFragment extends Fragment
         FragmentBeatBoxBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_beat_box, container, false);
         binding.recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         binding.recyclerView.setAdapter(new SoundAdapter(beatBox.getSounds()));
+        binding.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener()
+        {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
+            {
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar)
+            {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar)
+            {
+
+            }
+        });
         return binding.getRoot();
     }
 
@@ -83,5 +111,14 @@ public class BeatBoxFragment extends Fragment
         {
             return sounds.size();
         }
+
+
+    }
+
+    @Override
+    public void onDestroy()
+    {
+        beatBox.release();
+        super.onDestroy();
     }
 }
